@@ -1,0 +1,13 @@
+----------------
+Sublime Stata 13
+----------------
+
+Thanks for installing the Sublime Stata 13 plugin!
+
+
+## --------------------------- IMPORTANT!!! --------------------------- ##
+
+If your version of Stata is not named "StataSE", follow the 
+instructions in the README file so that this plugin will work properly.
+
+## -------------------------------------------------------------------- ##
