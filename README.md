@@ -1,6 +1,6 @@
 # Sublime Stata 13
 
-* Version 1.0.1
+* Version 1.0.2
 * Date: November 2, 2013
 
 This package basic support for Stata and comes with:
@@ -26,7 +26,6 @@ There are two ways to install this package:
 
 ## Known issues
 
-* Using the build system doesn't work on files with spaces in their names. The filename needs to be quoted, but there are too many nested quotes in the `osascript` command and I didn't take the time to figure out how to have everything nested properly. That needs to get fixed someday :)
 * This package is hardcoded to use StataSE. If your version of Stata in `/Applications/` is named something else ("Stata", "StataMP", "StataIC", etc.), you'll need to change the name from "StataSE" in two places:
 	* `Stata.sublime-build`
 	* `text_2_stata.py`

@@ -1,0 +1,6 @@
+----------------------
+Sublime Stata 13 1.0.2
+----------------------
+
+Fixes:
+  * Build system now works on files with spaces in their names (thanks to @FichteFoll!)
