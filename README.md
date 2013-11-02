@@ -26,6 +26,7 @@ This is a modified version of [Steve Harris's Stata package](https://github.com/
 
 ## Roadmap and wish list
 
+* Test to make sure this works in Sublime Text 3 (it probably does)
 * This only works on OS X since all commands rely on `osascript`. Adding Windows support would be cool (Stata 13 on Windows [has support for automation APIs](http://www.stata.com/automation/)).
 * Using a package-wide variable for the name of Stata (e.g. "StataSE") would be nice as well, eliminating the need to manually edit the plugin.
 * In the build file, the `osascript ...` command works, but gives the following error: `error "No result was returned from some part of this expression." number -2763`. The plugin currently fixes that by wrapping the command in `try` and `end try` commands. It would be nice to not have to do that, though.
