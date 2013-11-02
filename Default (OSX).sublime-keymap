@@ -1,5 +1,5 @@
 [
-  { "keys": ["super+enter"], "command": "run_macro_file", "args": {"file": "Packages/stata13/stata-send-command-move-next-line.sublime-macro"}, "context":
+  { "keys": ["super+enter"], "command": "run_macro_file", "args": {"file": "Packages/Stata 13/stata-send-command-move-next-line.sublime-macro"}, "context":
       [
         { "key": "selector", "operator": "equal", "operand": "source.stata" }
       ]
