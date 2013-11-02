@@ -1,0 +1,5 @@
+{        
+  "cmd": ["osascript -e 'try' -e 'tell application \"StataSE\" to activate & DoCommandAsync \"do $file\"' -e 'end try'"],
+  "selector": "source.stata",
+  "shell": true
+}
