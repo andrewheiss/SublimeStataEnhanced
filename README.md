@@ -16,6 +16,14 @@ This package basic support for Stata and comes with:
 This is a modified version of [Steve Harris's Stata package](https://github.com/docsteveharris/stata). Because of scripting limitations in Stata < 12, his version relied on creating temporary `.do` files to pass commands to Stata. Stata 13 added fancy new AppleScript commands (specifically `DoCommand` and `DoCommandAsync`) that allow for scripted commands and eliminate the need for temporary files. Because of that, this package is far simpler and than other Sublime Text packages.
 
 
+## Installation
+
+There are two ways to install this package:
+
+1. Search for "Stata 13" on [Package Control](https://sublime.wbond.net/)
+2. Copy the entire plugin folder to `~/Library/Application Support/Sublime Text 2/`
+
+
 ## Known issues
 
 * This package is hardcoded to use StataSE. If your version of Stata in `/Applications/` is named something else ("Stata", "StataMP", "StataIC", etc.), you'll need to change the name from "StataSE" in two places:
