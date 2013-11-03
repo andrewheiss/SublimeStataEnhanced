@@ -1,7 +1,7 @@
 # Sublime Stata 13
 
-* Version 1.0.2
-* Date: November 2, 2013
+* Version 1.0.3
+* Date: November 3, 2013
 
 This package basic support for Stata and comes with:
 
@@ -21,7 +21,7 @@ This is a modified version of [Steve Harris's Stata package](https://github.com/
 There are two ways to install this package:
 
 1. Search for "Stata 13" on [Package Control](https://sublime.wbond.net/)
-2. Copy the entire plugin folder to `~/Library/Application Support/Sublime Text 2/`
+2. Copy the entire plugin folder to `~/Library/Application Support/Sublime Text 2/Packages` or `~/Library/Application Support/Sublime Text 3/Packages`
 
 
 ## Known issues
@@ -34,7 +34,6 @@ There are two ways to install this package:
 
 ## Roadmap and wish list
 
-* Test to make sure this works in Sublime Text 3 (it probably does)
 * This only works on OS X since all commands rely on `osascript`. Adding Windows support would be cool (Stata 13 on Windows [has support for automation APIs](http://www.stata.com/automation/)).
 * Using a package-wide variable for the name of Stata (e.g. "StataSE") would be nice as well, eliminating the need to manually edit the plugin.
 * In the build file, the `osascript ...` command works, but gives the following error: `error "No result was returned from some part of this expression." number -2763`. The plugin currently fixes that by wrapping the command in `try` and `end try` commands. It would be nice to not have to do that, though.

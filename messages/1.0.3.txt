@@ -1,0 +1,6 @@
+----------------------
+Sublime Stata 13 1.0.3
+----------------------
+
+News:
+  * Plugin is compatible with Sublime Text 3
