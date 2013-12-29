@@ -1,0 +1,6 @@
+----------------------
+Sublime Stata 13 1.0.4
+----------------------
+
+News:
+  * Fixed issue with backslash in strings ("\"), thanks to @matthieugomez
