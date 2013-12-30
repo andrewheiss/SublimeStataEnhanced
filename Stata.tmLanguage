@@ -55,13 +55,21 @@
                 </dict>
                 <dict>
                         <key>begin</key>
-                        <string>`(?!\")</string>
+                        <string>`(?!")</string>
                         <key>end</key>
-                        <string>(?&lt;!\")'</string>
+                        <string>(?&lt;!")'</string>
                         <key>name</key>
                         <string>string.quoted.single.stata</string>
                         <key>patterns</key>
                         <array>
+                                <dict>
+                                    <key>include</key>
+                                    <string>#compoundquote</string>
+                                </dict>
+                                <dict>
+                                    <key>include</key>
+                                    <string>#singlequote</string>
+                                </dict>
                                 <dict>
                                         <key>match</key>
                                         <string>\\.</string>
@@ -93,9 +101,17 @@
                         <key>end</key>
                         <string>"'</string>
                         <key>name</key>
-                        <string>string.quoted.double.stata</string>
+                        <string>string.quoted.double.compound.stata</string>
                         <key>patterns</key>
                         <array>
+                                <dict>
+                                    <key>include</key>
+                                    <string>#compoundquote</string>
+                                </dict>
+                                <dict>
+                                    <key>include</key>
+                                    <string>#singlequote</string>
+                                </dict>
                                 <dict>
                                         <key>match</key>
                                         <string>\\[^"]</string>
@@ -104,14 +120,21 @@
                                 </dict>
                         </array>
                 </dict>
-                <dict>
-                        <key>begin</key>
-                        <string>/\*</string>
-                        <key>end</key>
-                        <string>\*/</string>
-                        <key>name</key>
-                        <string>comment.block.stata</string>
-                </dict>
+           		<dict>
+           		        <key>begin</key>
+           		        <string>/\*</string>
+           		        <key>end</key>
+           		        <string>\*/</string>
+           		        <key>name</key>
+           		        <string>comment.block.stata</string>
+           		        <key>patterns</key>
+           		        <array>
+           		                <dict>
+           		                    <key>include</key>
+           		                    <string>#commentblock</string>
+           		                </dict>
+           		        </array>        
+           		</dict>
                 <dict>
                         <key>match</key>
                         <string>(;\*|^\*|\t\*).*$\n?</string>
@@ -143,9 +166,63 @@
                         <string>constant.language.stata</string>
                 </dict>
         </array>
+        <key>repository</key>
+            <dict>
+                <key>commentblock</key>
+                    <dict>
+                        <key>begin</key>
+                        <string>/\*</string>
+                        <key>end</key>
+                        <string>\*/</string>
+                        <key>patterns</key>
+                        <array>
+                            <dict>
+                                <key>include</key>
+                                <string>#commentblock</string>
+                            </dict>
+                        </array>        
+                    </dict>
+                <key>singlequote</key>
+                    <dict>
+                        <key>begin</key>
+                        <string>`(?!")</string>
+                        <key>end</key>
+                        <string>(?&lt;!")'</string>
+                        <key>patterns</key>
+                        <array>
+                            <dict>
+                                <key>include</key>
+                                <string>#compoundquote</string>
+                            </dict>
+                            <dict>
+                                <key>include</key>
+                                <string>#singlequote</string>
+                            </dict>
+                        </array>        
+                    </dict>
+                <key>compoundquote</key>
+                    <dict>
+                        <key>begin</key>
+                        <string>`"</string>
+                        <key>end</key>
+                        <string>"'</string>
+                        <key>patterns</key>
+                        <array>
+                            <dict>
+                                <key>include</key>
+                                <string>#compoundquote</string>
+                            </dict>
+                            <dict>
+                                <key>include</key>
+                                <string>#singlequote</string>
+                            </dict>
+                        </array>        
+                    </dict>
+            </dict>
         <key>scopeName</key>
         <string>source.stata</string>
         <key>uuid</key>
         <string>C49120AC-6ECC-11D9-ACC8-000D93589AF6</string>
+
 </dict>
 </plist>
