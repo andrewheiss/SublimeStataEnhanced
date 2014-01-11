@@ -1,7 +1,7 @@
 # Sublime Stata 13
 
-* Version 1.0.4
-* Date: December 28, 2013
+* Version 1.0.5
+* Date: January 10, 2013
 
 This package basic support for Stata and comes with:
 

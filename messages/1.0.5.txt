@@ -1,0 +1,6 @@
+----------------------
+Sublime Stata 13 1.0.5
+----------------------
+
+News:
+  * Fixed issues with syntax highlighting in compound quotes, embedded single quotes, compound double quotes and comment blocks (thanks to @matthieugomez)
