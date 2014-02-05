@@ -48,7 +48,7 @@ class text_2_stataCommand(sublime_plugin.TextCommand):
 		filepath = os.path.dirname(filename)
 
 		# Write the selection to a temporary file in the current directory
-		dofile_path = os.path.join(filepath, '.sublime2stata.do')
+		dofile_path = os.path.join(filepath, 'sublime2stata.do')
 		this_file = open(dofile_path,'w')
 		this_file.write(all_text)
 		this_file.close()

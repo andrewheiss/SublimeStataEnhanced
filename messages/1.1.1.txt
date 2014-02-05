@@ -1,0 +1,6 @@
+----------------------
+Sublime Stata 13 1.1.1
+----------------------
+
+New features:
+  * Sublime Stata 13 now works with Stata 11 and 12 (contrary to its name)! Previous versions of Stata did not have good AppleScript support, so commands had to be copied into a temporary `.do` file and run indirectly. The latest version of this package keeps the nicer AppleScript support for Stata 13, but adds the temporary file-based system for previous versions. 
