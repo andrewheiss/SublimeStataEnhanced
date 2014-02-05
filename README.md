@@ -42,6 +42,6 @@ There are two ways to install this package:
 ## Roadmap and wish list
 
 * This only works on OS X since all commands rely on `osascript`. Adding Windows support would be cool (Stata 13 on Windows [has support for automation APIs](http://www.stata.com/automation/)).
-* * There is a setting for the Stata version, but it doesn't do anything yet. It would be nice to have run the appropriate command without having almost-duplicate `stata-send-command-move-next-line.sublime-macro` and `stata-send-command-move-next-line13.sublime-macro` files. However, I don't see a way to use setting variables in macro files. 
+* There is a setting for the Stata version, but it doesn't do anything yet. It would be nice to have run the appropriate command without having almost-duplicate `stata-send-command-move-next-line.sublime-macro` and `stata-send-command-move-next-line13.sublime-macro` files. However, I don't see a way to use setting variables in macro files. 
 * (*Temporarily taken care of for now by opening the file through Finder instead of Stata*).  
 In the build file, the `osascript ...` command works, but gives the following error: `error "No result was returned from some part of this expression." number -2763`. The plugin currently fixes that by wrapping the command in `try` and `end try` commands. It would be nice to not have to do that, though.
