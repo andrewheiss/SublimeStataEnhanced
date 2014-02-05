@@ -2,6 +2,6 @@
   "selector": "source.stata",
   "cmd": ["osascript", 
           "-e", "try",
-          "-e", "tell application \"StataSE\" to activate & DoCommandAsync \"do \\\"$file\\\"\"\n",
+          "-e", "tell application \"Finder\" to activate & open POSIX file \"$file\"",
           "-e", "end try"]
 }

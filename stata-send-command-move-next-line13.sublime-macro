@@ -1,0 +1,20 @@
+[
+	{
+		"command": "text_2_stata13"
+	},
+	{
+		"args":
+		{
+			"by": "lines",
+			"forward": true
+		},
+		"command": "move"
+	},
+	{
+		"args":
+		{
+			"to": "hardbol"
+		},
+		"command": "move_to"
+	}
+]
