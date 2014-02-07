@@ -3,7 +3,7 @@ import sublime_plugin
 import sublime
 import subprocess
 
-settingsfile = "Stata 13.sublime-settings"
+settingsfile = "Stata Enhanced.sublime-settings"
 
 class text_2_stata13Command(sublime_plugin.TextCommand):
 	""" Run selection or current line *directly* in Stata (for Stata 13) """

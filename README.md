@@ -1,7 +1,7 @@
-# Sublime Stata 13
+# Sublime Stata Enhanced
 
-* Version 1.1.2
-* Date: February 5, 2014
+* Version 1.1.3
+* Date: February 6, 2014
 
 This package basic support for Stata (11–13!) and comes with:
 
@@ -25,13 +25,13 @@ For compatability with previous versions of Stata, however, I have included comm
 
 There are two ways to install this package:
 
-1. Search for "Stata 13" on [Package Control](https://sublime.wbond.net/)
+1. Search for "Stata Enhanced" on [Package Control](https://sublime.wbond.net/)
 2. Copy the entire plugin folder to `~/Library/Application Support/Sublime Text 2/Packages` or `~/Library/Application Support/Sublime Text 3/Packages`
 
 
 ## Configuration options
 
-* Set the name of your Stata installation in `Stata 13.sublime-settings` (default is StataSE)
+* Set the name of your Stata installation in `Stata Enhanced.sublime-settings` (default is StataSE)
 
 
 ## Known issues
