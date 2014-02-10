@@ -4,11 +4,15 @@
         "children":
         [
             {
-                "caption": "Stata",
+                "caption": "Stata Enhanced",
                 "children":
                 [
                     {
-                        "caption": "Send line/selection to Stata",
+                        "caption": "Send line/selection to Stata (Stata 13)",
+                        "command": "text_2_stata13"
+                    },
+                    {
+                        "caption": "Send line/selection to Stata (Stata 11-12)",
                         "command": "text_2_stata"
                     }
                 ]
