@@ -1,0 +1,9 @@
+----------------------
+Stata Enhanced 1.1.4
+----------------------
+
+New features:
+  * New name! The package is now called "Stata Enhanced" since it works with versions 11-13
+
+News:
+  * Fixes lingering issues left over from renaming the package (I forgot to rename a few of the commands and paths)

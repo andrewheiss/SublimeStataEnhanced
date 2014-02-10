@@ -1,7 +1,7 @@
 # Sublime Stata Enhanced
 
-* Version 1.1.3
-* Date: February 6, 2014
+* Version 1.1.4
+* Date: February 10, 2014
 
 This package basic support for Stata (11–13!) and comes with:
 
