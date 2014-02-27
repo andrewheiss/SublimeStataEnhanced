@@ -1,0 +1,26 @@
+----------------------
+Stata Enhanced 1.2.0
+----------------------
+
+New features:
+
+  * Inline comments! Stata ordinarily chokes on inline comments typed/pasted
+  in the command window. Following the example of Emacs Ado-mode
+  (http://louabill.org/Stata/ado-mode_install.html), this plugin will now
+  strip all inline comments from the commands you send.
+
+  So if you send 
+
+    display "Testing" // Inline comment here
+
+  or 
+
+    display "Testing" /* Inline comment here*/
+
+  or even 
+
+    display /* random comment here */ "Testing"
+
+  the plugin will only send this to Stata:
+
+    display "Testing"
