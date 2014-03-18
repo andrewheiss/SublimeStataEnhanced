@@ -1,0 +1,6 @@
+----------------------
+Stata Enhanced 1.2.2
+----------------------
+
+News:
+  * Focus returns to Sublime Text after sending a .do file to Stata 11-12
