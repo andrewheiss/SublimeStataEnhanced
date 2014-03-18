@@ -83,5 +83,11 @@ class text_2_stataCommand(sublime_plugin.TextCommand):
 		this_file.close()
 
 		# Open the temporary do file in Stata
-		cmd = """osascript -e 'tell application "Finder" to open POSIX file "{0}"' &""".format(dofile_path)
+		# Get ST version for returning focus to ST
+		if int(sublime.version()) > 3000:
+			st_name = "Sublime Text"
+		else:
+			st_name = "Sublime Text 2"
+
+		cmd = """osascript -e 'tell application "Finder" to open POSIX file "{0}"' -e 'tell application "{1}" to activate' &""".format(dofile_path, st_name)
 		os.system(cmd)
