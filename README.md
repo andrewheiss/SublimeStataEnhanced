@@ -1,7 +1,7 @@
 # Sublime Stata Enhanced
 
-* Version 1.2.0
-* Date: February 27, 2014
+* Version 1.2.1
+* Date: March 17, 2014
 
 This package basic support for Stata (11–13!) and comes with:
 
@@ -33,7 +33,7 @@ There are two ways to install this package:
 
 * Set the name of your Stata installation in `Stata Enhanced.sublime-settings` (default is StataSE)
 * (**Stata 11 and 12 only**) This package sends selected code to a temporary file and then opens that file in Stata via Finder. In order for it to work correctly on your system, you must ensure two things are true:
-	1. `.do` files must be set to open in Stata by default. 
+	1. `.do` files must be set to open in Stata by default in Finder (right click on a `.do` file > "Get Info" > "Open with" > "Change all…" > Select Stata. 
 	2. `.do` files opened in Stata need to be run, not edited. Change this in Preferences > Do-file Editor > Advanced > Edit do-files opened from the Finder in Do-file Editor (uncheck this)
 
 
