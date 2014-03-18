@@ -7,25 +7,25 @@ import re
 settingsfile = "Stata Enhanced.sublime-settings"
 
 def strip_inline_comments(text):
-  # This is really brute force and hackish. Ideally we could use ST scopes to
-  # only remove comments instead of trying to parse everything with regex
-  # (since there will inevitably be edge cases that should/shouldn't be
-  # removed). ST kind of has that functionality: 
+	# This is really brute force and hackish. Ideally we could use ST scopes to
+	# only remove comments instead of trying to parse everything with regex
+	# (since there will inevitably be edge cases that should/shouldn't be
+	# removed). ST kind of has that functionality: 
 	# 	self.view.find_by_selector('comment')
 	# But this is a good stopgap for now.
-  clean = text
+	clean = text
 
-  # Take care of line continuation
-  clean = re.sub("/{3,}\\n", "", clean)
+	# Take care of line continuation
+	clean = re.sub("/{3,}\\n", "", clean)
 
-  # Remove /* ... */ comments (handles multiple lines)
-  # Inscrutable regex courtesy of http://ostermiller.org/findcomment.html
-  clean = re.sub("/\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/", "", clean)
+	# Remove /* ... */ comments (handles multiple lines)
+	# Inscrutable regex courtesy of http://ostermiller.org/findcomment.html
+	clean = re.sub("/\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/", "", clean)
 
-  # Remove // comments
-  clean = re.sub("//(.*)\\n", "", clean)
+	# Remove // comments
+	clean = re.sub("//(.*)\\n", "", clean)
 
-  return(clean)
+	return(clean)
 
 
 class text_2_stata13Command(sublime_plugin.TextCommand):
