@@ -1,0 +1,6 @@
+----------------------
+Stata Enhanced 1.2.3
+----------------------
+
+News:
+  * Properly handles all cases of `//` comments

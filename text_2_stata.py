@@ -23,7 +23,7 @@ def strip_inline_comments(text):
 	clean = re.sub("/\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/", "", clean)
 
 	# Remove // comments
-	clean = re.sub(" //(.*)\\n", "", clean)
+	clean = re.sub("//.*", "", clean)
 
 	return(clean)
 
