@@ -18,12 +18,30 @@ def strip_inline_comments(text):
 	# Take care of line continuation
 	clean = re.sub("/{3,}\\n", "", clean)
 
-	# Remove /* ... */ comments (handles multiple lines)
-	# Inscrutable regex courtesy of http://ostermiller.org/findcomment.html
-	clean = re.sub("/\\*([^*]|[\\r\\n]|(\\*+([^*/]|[\\r\\n])))*\\*+/", "", clean)
+	# Remove /* ... */ comments (handles multiple lines) + // comments
+	#
+	# Bonus! Handles these cases correctly:
+	#  * "This is a /* string */"
+	#  * "This is // also a string"
+	#  * "URLs work too. http://www.example.com"
+	#
+	# Code adapted from http://stackoverflow.com/a/18381470/120898
+	def remove_comments(string):
+		pattern = r"(\".*?(?<!\\)\"|\'.*?(?<!\\)\')|(/\*.*?\*/|//[^\r\n]*$)"
+		# pattern = r"(\".*?\"|\'.*?\')|(/\*.*?\*/|//[^\r\n]*$)"  # Original
+		# First group captures quoted strings (double or single)
+		# Second group captures comments (//single-line or /* multi-line */)
+		regex = re.compile(pattern, re.MULTILINE|re.DOTALL)
+		def _replacer(match):
+			# If the 2nd group (capturing comments) is not None,
+			# it means we have captured a non-quoted (real) comment string.
+			if match.group(2) is not None:
+				return ""  # So we will return empty to remove the comment
+			else:  # Otherwise, we will return the 1st group
+				return match.group(1)  # Captured quoted-string
+		return regex.sub(_replacer, string)
 
-	# Remove // comments
-	clean = re.sub("//.*", "", clean)
+	clean = remove_comments(clean)
 
 	return(clean)
 

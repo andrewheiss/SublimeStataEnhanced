@@ -1,0 +1,6 @@
+----------------------
+Stata Enhanced 1.2.4
+----------------------
+
+News:
+  * Properly handles all cases of `//` comments, URLs, and other commenting edge cases
