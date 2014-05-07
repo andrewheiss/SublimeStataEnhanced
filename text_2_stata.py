@@ -43,6 +43,9 @@ def strip_inline_comments(text):
 
 	clean = remove_comments(clean)
 
+	# Escape $s, since AppleScript parses them as variables
+	clean = re.sub("\\$", "\\$", clean)
+
 	return(clean)
 
 

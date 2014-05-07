@@ -1,0 +1,7 @@
+----------------------
+Stata Enhanced 1.2.5
+----------------------
+
+News:
+  * Properly handles commands with `$`, such as `use "${input}/test.dta", clear` 
+  	or `use "$dinput/test.dta", clear` (thanks to @cjjmeyer for finding this!)
