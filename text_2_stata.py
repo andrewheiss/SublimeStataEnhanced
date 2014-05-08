@@ -44,7 +44,7 @@ def strip_inline_comments(text):
 	clean = remove_comments(clean)
 
 	# Escape $s, since AppleScript parses them as variables
-	clean = re.sub("\\$", "\\$", clean)
+	# clean = re.sub("\\$", "\\$", clean)
 
 	return(clean)
 
@@ -73,7 +73,9 @@ class text_2_stata13Command(sublime_plugin.TextCommand):
 			# activate
 			DoCommandAsync "{1}" with addToReview
 		 end tell
-		 END""".format(settings.get('stata_name'), all_text.replace('"', '\\"').replace('`', '\\`').strip()) 
+		 END""".format(settings.get('stata_name'), 
+		 	all_text.replace('"', '\\"').replace('`', '\\`').
+		 	replace('$', "\\$").strip()) 
 		print(cmd)
 		os.system(cmd)
 

@@ -1,0 +1,7 @@
+----------------------
+Stata Enhanced 1.2.6
+----------------------
+
+News:
+  * Properly handles commands with `$` in both Stata 13 and Stata 11-12 
+  	(thanks to @rangerqu for finding this!)
