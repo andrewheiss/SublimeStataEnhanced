@@ -83,6 +83,8 @@ class text_2_stata13Command(sublime_plugin.TextCommand):
 class text_2_stataCommand(sublime_plugin.TextCommand):
 	""" Run selection or current line in Stata through a temporary file (for Stata < 13) """
 	def run(self, edit):
+		settings = sublime.load_settings(settingsfile)
+		
 		# Get the selection; if nothing is selected, get the current line
 		all_text = ""
 		sels = self.view.sel()
@@ -106,11 +108,23 @@ class text_2_stataCommand(sublime_plugin.TextCommand):
 		this_file.close()
 
 		# Open the temporary do file in Stata
-		# Get ST version for returning focus to ST
-		if int(sublime.version()) > 3000:
-			st_name = "Sublime Text"
-		else:
-			st_name = "Sublime Text 2"
+		if sublime.platform() == "osx":
+			# Get ST version for returning focus to ST
+			if int(sublime.version()) > 3000:
+				st_name = "Sublime Text"
+			else:
+				st_name = "Sublime Text 2"
 
-		cmd = """osascript -e 'tell application "Finder" to open POSIX file "{0}"' -e 'tell application "{1}" to activate' &""".format(dofile_path, st_name)
-		os.system(cmd)
+			cmd = """osascript -e 'tell application "Finder" to open POSIX file "{0}"' -e 'tell application "{1}" to activate' &""".format(dofile_path, st_name)
+			os.system(cmd)
+		elif sublime.platform == "windows":
+			vbs_cmd = """CreateObject("WScript.Shell").Run "{0} " & "{1}", 4, false """.format(settings.get('stata_name'), dofile_path)
+
+			vbs_path = os.path.join(filepath, 'open_in_stata.vbs')
+			vbs_file = open(vbs_path, 'w')
+			vbs_file.write(vbs_cmd)
+			vbs_file.close()
+
+			cmd = "cscript.exe {0}".format(vbs_path)
+			os.system(cmd)
+			os.remove(vbs_path)

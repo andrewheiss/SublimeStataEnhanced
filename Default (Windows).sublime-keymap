@@ -1,0 +1,7 @@
+[
+  { "keys": ["ctrl+enter"], "command": "run_macro_file", "args": {"file": "Packages/Stata Enhanced/stata-send-command-move-next-line.sublime-macro"}, "context":
+      [
+        { "key": "selector", "operator": "equal", "operand": "source.stata" }
+      ]
+  }
+]
