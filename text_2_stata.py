@@ -117,7 +117,7 @@ class text_2_stataCommand(sublime_plugin.TextCommand):
 
 			cmd = """osascript -e 'tell application "Finder" to open POSIX file "{0}"' -e 'tell application "{1}" to activate' &""".format(dofile_path, st_name)
 			os.system(cmd)
-		elif sublime.platform == "windows":
+		elif sublime.platform() == "windows":
 			vbs_cmd = """CreateObject("WScript.Shell").Run "{0} " & "{1}", 4, false """.format(settings.get('stata_name'), dofile_path)
 
 			vbs_path = os.path.join(filepath, 'open_in_stata.vbs')
