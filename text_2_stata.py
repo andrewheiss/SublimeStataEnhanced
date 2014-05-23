@@ -1,7 +1,6 @@
 import os
 import sublime_plugin
 import sublime
-import subprocess
 import re
 
 settingsfile = "Stata Enhanced.sublime-settings"
