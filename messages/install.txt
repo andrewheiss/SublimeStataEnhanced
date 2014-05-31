@@ -5,7 +5,7 @@ Sublime Stata 13
 Thanks for installing the Sublime Stata 13 plugin!
 
 
-## --------------------------- IMPORTANT!!! --------------------------- ##
+## ----------------------- IMPORTANT (for OS X) ----------------------- ##
 
 If your version of Stata is not named "StataSE", follow the 
 instructions in the README file so that this plugin will work properly.
@@ -15,5 +15,21 @@ If you are using Stata **11*** or **12**, make sure that:
 	2. .do files are automatically run when opened in Stata:
 		Change this in Preferences > Do-file Editor > Advanced > 
 		Edit do-files opened from the Finder in Do-file Editor (uncheck this)
+
+## -------------------------------------------------------------------- ##
+
+
+## ---------------------- IMPORTANT (for Windows) --------------------- ##
+
+Follow the instructions in the README file to configure this plugin 
+to work with your installation of Stata.
+
+Quickstart:
+	1. Set the `stata_name` variable in the `.sublime-settings` file to 
+	   the *full path* of your Stata executable, with slashes *reversed* 
+	   (e.g. "C:/Program Files (x86)/Stata13/StataSE-64.exe")
+	2. Make sure that .do files are automatically run when opened in Stata:
+	   Change this in Do-file Editor > Edit > Preferences > Advanced > 
+	   Edit do-files opened from Windows instead of executing them (uncheck this)
 
 ## -------------------------------------------------------------------- ##

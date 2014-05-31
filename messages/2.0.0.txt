@@ -1,0 +1,6 @@
+----------------------
+Sublime Stata 13 2.0.0
+----------------------
+
+New features:
+  * Sublime Stata Enhanced now works on Windows! Thanks to [@tonijung](https://github.com/tonijung) for her testing and debugging help. Instructions for configuring the plugin to work on Windows are included in the README. If you run into any problems, please submit an issue at GitHub.
