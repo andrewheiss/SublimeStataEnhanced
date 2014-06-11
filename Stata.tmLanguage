@@ -137,7 +137,7 @@
            		</dict>
                 <dict>
                         <key>match</key>
-                        <string>(;\*|^\*|\t\*).*$\n?</string>
+                        <string>(;\*|^\s*\*|\t\*).*$\n?</string>
                         <key>name</key>
                         <string>comment.line.star.stata</string>
                 </dict>
