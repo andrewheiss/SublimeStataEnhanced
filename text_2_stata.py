@@ -124,6 +124,6 @@ class text_2_stataCommand(sublime_plugin.TextCommand):
 			vbs_file.write(vbs_cmd)
 			vbs_file.close()
 
-			cmd = "cscript.exe {0}".format(vbs_path)
+			cmd = "cscript.exe {0}".format("\""+vbs_path+"\"")
 			os.system(cmd)
 			os.remove(vbs_path)
