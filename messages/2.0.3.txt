@@ -1,0 +1,7 @@
+----------------------
+Sublime Stata 13 2.0.3
+----------------------
+
+Bug fixes:
+	* Line continuation delimiters are removed properly (fixes #22)
+	* Lines that contain \s now work properly
