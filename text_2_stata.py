@@ -15,7 +15,7 @@ def strip_inline_comments(text):
 	clean = text
 
 	# Take care of line continuation
-	clean = re.sub("/{3,}\\n", "", clean)
+	clean = re.sub("/{3,}\\n", " ", clean)
 
 	# Remove /* ... */ comments (handles multiple lines) + // comments
 	#
