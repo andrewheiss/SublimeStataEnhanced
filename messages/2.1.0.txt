@@ -1,0 +1,17 @@
+----------------------
+Sublime Stata 13 2.1.0
+----------------------
+
+New feature:
+	* Comments that start with a # are now treated as a symbol. This means that 
+	  you can make a comment like...
+
+	  *# This is a header
+
+	  or
+
+	  * # This is also a header
+
+	  ... and it will be listed in the Goto Symbol menu (⌘+R or ctrl+R).
+
+	  Thanks to @tedsvo for this feature!
