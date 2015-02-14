@@ -137,6 +137,12 @@
            		</dict>
                 <dict>
                         <key>match</key>
+                        <string>(;\*\#|^\s*\*\#|\t\*\#).*$\n?</string>
+                        <key>name</key>
+                        <string>comment.line.fakeheader.stata</string>
+                </dict>
+                <dict>
+                        <key>match</key>
                         <string>(;\*|^\s*\*|\t\*).*$\n?</string>
                         <key>name</key>
                         <string>comment.line.star.stata</string>
