@@ -1,18 +1,18 @@
 # Sublime Stata Enhanced
 
-* Version 2.1.0
-* Date: February 13, 2015
+* Version 2.1.2
+* Date: January 11, 2016
 
-This package basic support for Stata (11–13, Windows and OS X) and comes with:
+This package basic support for Stata (11–14, Windows and OS X) and comes with:
 
 * Language definition for `.do` and `.ado` files 
 * Commands for sending individual lines or selections to Stata (available via the command palette and with keyboard shortcuts):
-	* (*Stata 13, OS X only*) Send current line or selection to Stata: `super+enter`
+	* (*Stata 13, 14, OS X only*) Send current line or selection to Stata: `super+enter`
 	* (*Stata 11, 12; OS X only*) Send current line or selection to Stata: `super+alt+enter`
-	* (*Stata 11–13; Windows only*) Send current line or selection to Stata: `ctrl+enter`
+	* (*Stata 11–14; Windows only*) Send current line or selection to Stata: `ctrl+enter`
 * (*OS X only*) A build system for Stata files
 
-**NB**: If you use Stata < 13 on OS X, you'll probably want to reconfigure those keyboard shortcuts in `Default (OSX).sublime-keymap` so that `super+enter` runs `stata-send-command-move-next-line.sublime-macro` instead of `stata-send-command-move-next-line13.sublime-macro`.
+**NB**: If you use Stata < 13 on OS X, you'll probably want to reconfigure those keyboard shortcuts so that `super+enter` runs `stata-send-command-move-next-line.sublime-macro` instead of `stata-send-command-move-next-line13.sublime-macro`. Go to Preferences > Package Settings > Stata Enhanced > Keybindings – Default and copy the appropriate entry to your user keybindings (Preferences > Key Bindings – User).
 
 
 ## Background

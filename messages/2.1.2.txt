@@ -1,0 +1,12 @@
+----------------------
+Sublime Stata 13 2.1.2
+----------------------
+
+Enhancements:
+    * `bysort` is now highlighted (thanks @Ufos92!)
+    * Default and user settings and keybindings are now available from the
+      Sublime Text preferences menu. In the past, I foolishly told people to
+      edit Default (XXX).sublime-keymap to change the shortcut for the Stata
+      13+ or Stata < 13 commands, but every time this package updated, those
+      modifications were overwritten. Now it's easier to get to "User/Default
+      (XXX).sublime-keymap".
