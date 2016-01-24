@@ -1,0 +1,10 @@
+----------------------
+Sublime Stata 13 2.1.4
+----------------------
+
+Enhancements:
+    * Add indentation rules (thanks @matthieugomez!)
+
+Fixes:
+    * Remove errant comma in menu settings file (fixes #35; thanks @twolock!)
+    * Properly handle lines with comments after line continuation characters (fixes #23; thanks @NilsEnevoldsen!)
