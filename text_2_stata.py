@@ -67,14 +67,21 @@ class text_2_stata13Command(sublime_plugin.TextCommand):
 		all_text = strip_inline_comments(all_text)
 
 		# Send the command to Stata with AppleScript
+        # Switch focus to Stata or not after sending a command depending on a setting
+		if settings.get('switch_focus_to_stata'):
+			switch_focus = "activate"
+		else:
+			switch_focus = ""
+
 		cmd = """osascript<< END
 		 tell application "{0}"
-			# activate
+			{2}
 			DoCommandAsync "{1}" with addToReview
 		 end tell
 		 END""".format(settings.get('stata_name'), 
 		 	all_text.replace('\\', '\\\\\\').replace('"', '\\"').
-		 	replace('`', '\\`').replace('$', "\\$").strip()) 
+		 	replace('`', '\\`').replace('$', "\\$").strip(),
+			switch_focus)
 		print(cmd)
 		os.system(cmd)
 

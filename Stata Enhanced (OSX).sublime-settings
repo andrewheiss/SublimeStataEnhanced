@@ -1,4 +1,5 @@
 {
   "stata_version": 13,
-  "stata_name": "StataSE"
+  "stata_name": "StataSE",
+  "switch_focus_to_stata": false
 }
