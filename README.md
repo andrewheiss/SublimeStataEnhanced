@@ -1,7 +1,7 @@
 # Sublime Stata Enhanced
 
-* Version 2.1.4
-* Date: January 23, 2016
+* Version 2.1.5
+* Date: July 4, 2016
 
 This package basic support for Stata (11–14, Windows and OS X) and comes with:
 
@@ -38,6 +38,8 @@ There are two ways to install this package:
 * (**Stata 11 and 12 only**) This package sends selected code to a temporary file and then opens that file in Stata via Finder. In order for it to work correctly on your system, you must ensure two things are true:
 	1. `.do` files must be set to open in Stata by default in Finder (right click on a `.do` file > "Get Info" > "Open with" > "Change all…" > Select Stata. 
 	2. `.do` files opened in Stata need to be run, not edited. Change this in Preferences > Do-file Editor > Advanced > Edit do-files opened from the Finder in Do-file Editor (uncheck this)
+
+By default, when sending code to Stata on OS X, Sublime Text will maintain focus so you can continue to edit, following the pattern of RStudio, which sends code to the R console from the script editor without changing focus away from the editor. If you prefer for Stata to take focus after sending lines or selections, set the `switch_focus_to_stata` to `true` in `Stata Enhanced (OS X).sublime-settings`.
 
 ### Windows
 

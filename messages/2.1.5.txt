@@ -1,0 +1,8 @@
+----------------------
+Sublime Stata 13 2.1.5
+----------------------
+
+Enhancements:
+    * OS X only: Add setting that lets Stata activate and take focus after
+      sending a line or selection (`switch_focus_to_stata`). By default,
+      Sublime Text will keep focus. (Thanks @nickeubank!)
