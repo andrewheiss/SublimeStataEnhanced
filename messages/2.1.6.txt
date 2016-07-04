@@ -1,5 +1,5 @@
 ----------------------
-Sublime Stata 13 2.1.5
+Sublime Stata 13 2.1.6
 ----------------------
 
 Enhancements:
