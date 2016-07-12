@@ -3,8 +3,8 @@
   "osx": 
   {
     "cmd": ["osascript", 
-            "-e", "try",
-            "-e", "tell application \"Finder\" to activate & open POSIX file \"$file\"",
-            "-e", "end try"]
+            "-e", "tell application \"StataMP\"",
+            "-e", "DoCommandAsync \"do \\\"$file\\\"\" with addToReview",
+            "-e", "end tell"]
   }
 }
