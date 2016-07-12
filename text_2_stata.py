@@ -66,25 +66,40 @@ class text_2_stata13Command(sublime_plugin.TextCommand):
 
         # Get rid of inline comments
         all_text = strip_inline_comments(all_text)
+        all_text = all_text.replace('\\', '\\\\\\').replace('"', '\\"'). \
+            replace('`', '\\`').replace('$', "\\$").strip()
 
-        # Send the command to Stata with AppleScript
         # Switch focus to Stata or not after sending a command depending on a setting
         if settings.get('switch_focus_to_stata'):
             switch_focus = "activate"
         else:
             switch_focus = ""
 
-        cmd = """osascript<< END
-         tell application "{0}"
-            {2}
-            DoCommandAsync "{1}" with addToReview
-         end tell
-         END""".format(settings.get('stata_name'),
-            all_text.replace('\\', '\\\\\\').replace('"', '\\"').
-            replace('`', '\\`').replace('$', "\\$").strip(),
-            switch_focus)
-        print(cmd)
-        os.system(cmd)
+        # Stata only allows 8192 characters.
+        if len(all_text)<8192:
+            # Send the command to Stata with AppleScript
+            cmd = """osascript<< END
+             tell application "{0}"
+                {2}
+                DoCommandAsync "{1}" with addToReview
+             end tell
+             END""".format(settings.get('stata_name'), all_text, switch_focus)
+            print(cmd)
+            os.system(cmd)
+        else:
+            if sublime.ok_cancel_dialog("This selection is too long to run.\n\nWould you like to run the whole do file?", "Run complete file"):
+                dofile_path = self.view.file_name()
+                print(dofile_path)
+
+                cmd = """osascript<< END
+                 tell application "{0}"
+                    {2}
+                    DoCommandAsync "do \\\"{1}\\\"" with addToReview
+                 end tell
+                 END""".format(settings.get('stata_name'), dofile_path, switch_focus)
+                
+                print(cmd)
+                os.system(cmd)
 
 
 class text_2_stataCommand(sublime_plugin.TextCommand):
