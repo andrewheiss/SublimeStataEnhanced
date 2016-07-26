@@ -1,10 +1,4 @@
 {
-  "selector": "source.stata",
-  "osx": 
-  {
-    "cmd": ["osascript", 
-            "-e", "tell application \"StataMP\"",
-            "-e", "DoCommandAsync \"do \\\"$file\\\"\" with addToReview",
-            "-e", "end tell"]
-  }
+    "target": "stata_run_complete",
+    "selector": "source.stata",
 }

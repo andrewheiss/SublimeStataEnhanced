@@ -2,6 +2,7 @@ import os
 import sublime_plugin
 import sublime
 import re
+import subprocess
 
 settingsfile = "Stata Enhanced.sublime-settings"
 
@@ -48,6 +49,73 @@ def strip_inline_comments(text):
 
     return(clean)
 
+def get_stata_version(stata_name):
+    if stata_name != "auto": # get application identifier for user-set Stata
+        cmd = ["osascript", "-e", "return id of application \"{}\"".format(stata_name)]
+        try:
+            stata_app_id = subprocess.check_output(cmd)
+        except subprocess.CalledProcessError:
+            sublime.error_message("User-defined version of Stata not found.")
+            raise Exception("User-defined version of Stata not found.")
+
+        stata_app_id = stata_app_id.decode("utf-8").strip()
+        version = int(stata_app_id[-2:])
+        return((version, stata_app_id))
+
+    else: # figure out Stata version automatically
+        cmd = """osascript<< END
+                    try
+                        tell me to get application id "com.stata.stata14"
+                        set stata to 14
+                    end try
+                    try
+                        tell me to get application id "com.stata.stata13"
+                        set stata to 13
+                    end try
+                    try
+                        tell me to get application id "com.stata.stata12"
+                        set stata to 12
+                    end try
+                    try
+                        tell me to get application id "com.stata.stata11"
+                        set stata to 11
+                    end try
+                    return stata
+                END"""
+        try:
+            version = subprocess.check_output(cmd, shell=True)
+        except subprocess.CalledProcessError:
+            sublime.error_message("No version of Stata found.")
+            raise Exception("No version of Stata found.")
+
+        version = version.decode("utf-8").strip()
+        return((int(version), "com.stata.stata{}".format(version)))
+
+class StataRunCompleteCommand(sublime_plugin.WindowCommand):
+    """ Runs the complete do file in Stata. """
+
+    def run(self):
+        self.window.run_command('save')
+        file_name = self.window.active_view().file_name()
+
+        settings = sublime.load_settings(settingsfile)
+        version, stata_app_id = get_stata_version(settings.get('stata_name'))
+
+        # Switch focus to Stata or not after sending a command depending on a setting
+        if settings.get('switch_focus_to_stata'):
+            switch_focus = "activate"
+        else:
+            switch_focus = ""
+
+        cmd = """osascript<< END
+             tell application id "{}"
+                {}
+                DoCommandAsync "do \\\"{}\\\"" with addToReview
+             end tell
+             END""".format(stata_app_id, switch_focus, file_name)
+
+        os.system(cmd)
+
 
 class text_2_stata13Command(sublime_plugin.TextCommand):
     """ Run selection or current line *directly* in Stata (for Stata 13) """
@@ -75,31 +143,22 @@ class text_2_stata13Command(sublime_plugin.TextCommand):
         else:
             switch_focus = ""
 
+        version, stata_app_id = get_stata_version(settings.get('stata_name'))
+
         # Stata only allows 8192 characters.
         if len(all_text)<8192:
             # Send the command to Stata with AppleScript
             cmd = """osascript<< END
-             tell application "{0}"
-                {2}
-                DoCommandAsync "{1}" with addToReview
+             tell application id "{}"
+                {}
+                DoCommandAsync "{}" with addToReview
              end tell
-             END""".format(settings.get('stata_name'), all_text, switch_focus)
+             END""".format(stata_app_id, switch_focus, all_text)
             print(cmd)
             os.system(cmd)
         else:
             if sublime.ok_cancel_dialog("This selection is too long to run.\n\nWould you like to run the whole do file?", "Run complete file"):
-                dofile_path = self.view.file_name()
-                print(dofile_path)
-
-                cmd = """osascript<< END
-                 tell application "{0}"
-                    {2}
-                    DoCommandAsync "do \\\"{1}\\\"" with addToReview
-                 end tell
-                 END""".format(settings.get('stata_name'), dofile_path, switch_focus)
-                
-                print(cmd)
-                os.system(cmd)
+                self.view.window().run_command("stata_run_complete")
 
 
 class text_2_stataCommand(sublime_plugin.TextCommand):
