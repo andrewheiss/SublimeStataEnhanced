@@ -7,9 +7,6 @@ Thanks for installing the Sublime Stata 13 plugin!
 
 ## ----------------------- IMPORTANT (for OS X) ----------------------- ##
 
-If your version of Stata is not named "StataSE", follow the 
-instructions in the README file so that this plugin will work properly.
-
 If you are using Stata **11*** or **12**, make sure that:
 	1. .do files are set to open in Stata by default in Finder
 	2. .do files are automatically run when opened in Stata:
