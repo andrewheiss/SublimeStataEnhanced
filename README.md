@@ -7,13 +7,9 @@ This package basic support for Stata (11–14, Windows and OS X) and comes with:
 
 * Language definition for `.do` and `.ado` files 
 * Commands for sending individual lines or selections to Stata (available via the command palette and with keyboard shortcuts):
-	* (*Stata 13, 14, OS X only*) Send current line or selection to Stata: `super+enter`
-	* (*Stata 11, 12; OS X only*) Send current line or selection to Stata: `super+alt+enter`
-	* (*Stata 11–14; Windows only*) Send current line or selection to Stata: `ctrl+enter`
-* (*OS X only*) A build system for Stata files
-
-**NB**: If you use Stata < 13 on OS X, you'll probably want to reconfigure those keyboard shortcuts so that `super+enter` runs `stata-send-command-move-next-line.sublime-macro` instead of `stata-send-command-move-next-line13.sublime-macro`. Go to Preferences > Package Settings > Stata Enhanced > Keybindings – Default and copy the appropriate entry to your user keybindings (Preferences > Key Bindings – User).
-
+	* (*OS X*) Send current line or selection to Stata: `super+enter`
+	* (*Windows*) Send current line or selection to Stata: `ctrl+enter`
+* A build system for Stata files
 
 ## Background
 
@@ -34,7 +30,6 @@ There are two ways to install this package:
 
 ### OS X
 
-* (**All versions of Stata**) Set the name of your Stata installation in `Stata Enhanced (OS X).sublime-settings` (default is `StataSE`)
 * (**Stata 11 and 12 only**) This package sends selected code to a temporary file and then opens that file in Stata via Finder. In order for it to work correctly on your system, you must ensure two things are true:
 	1. `.do` files must be set to open in Stata by default in Finder (right click on a `.do` file > "Get Info" > "Open with" > "Change all…" > Select Stata. 
 	2. `.do` files opened in Stata need to be run, not edited. Change this in Preferences > Do-file Editor > Advanced > Edit do-files opened from the Finder in Do-file Editor (uncheck this)
@@ -44,12 +39,9 @@ By default, when sending code to Stata on OS X, Sublime Text will maintain focus
 ### Windows
 
 * (**All versions of Stata**) Set the full path of your Stata installation (with slashes reversed) in `Stata Enhanced (Windows).sublime-settings` (default is `"C:/Program Files (x86)/Stata13/StataSE-64.exe"`)
-* This package sends selected code to a temporary file and then opens that file in Stata via Finder. In order for it to work correctly on your system, you must ensure that `.do` files opened in Stata are run, not edited. Change this in Do-file Editor > Edit > Preferences > Advanced > Edit do-files opened from Windows instead of executing them (uncheck this)
+* This package sends selected code to a temporary file and then opens that file in Stata. In order for it to work correctly on your system, you must ensure that `.do` files opened in Stata are run, not edited. Change this in Do-file Editor > Edit > Preferences > Advanced > Edit do-files opened from Windows instead of executing them (uncheck this)
 
 
 ## Roadmap and wish list
 
 * Stata 13 for Windows [has support for Automation APIs](http://www.stata.com/automation/). It would be cool to use those instead of temporary files (like how the OS X version of the plugin uses temporary files for Stata 11–12, but the API for 13).
-* There is a setting for the Stata version, but it doesn't do anything yet. It would be nice to have run the appropriate command without having almost-duplicate `stata-send-command-move-next-line.sublime-macro` and `stata-send-command-move-next-line13.sublime-macro` files. However, I don't see a way to use setting variables in macro files. 
-* (*Temporarily taken care of for now by opening the file through Finder instead of Stata on OS X*).  
-In the build file, the `osascript ...` command works, but gives the following error: `error "No result was returned from some part of this expression." number -2763`. The plugin currently fixes that by wrapping the command in `try` and `end try` commands. It would be nice to not have to do that, though.
