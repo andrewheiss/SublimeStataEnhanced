@@ -1,0 +1,11 @@
+----------------------
+Sublime Stata 13 2.2.0
+----------------------
+
+Enhancements (thanks to @elbersb)!:
+    * Merge the two version-specific commands into one; this get rids of some
+      of the required configuration (also fixes #43)
+    * Build system now works on Windows as well; should work better on OS X
+      (i.e., also for older versions of Stata)
+    * Stata is found automatically on OS X; for OS X users, the plugin should
+      now work without any configuration at all
