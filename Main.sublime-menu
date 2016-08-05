@@ -10,7 +10,7 @@
                     {
                         "caption": "Send line/selection to Stata",
                         "command": "text_2_stata"
-                    },
+                    }
                 ]
             }
         ]
