@@ -65,6 +65,10 @@ def get_stata_version(stata_name):
     else: # figure out Stata version automatically
         cmd = """osascript<< END
                     try
+                        tell me to get application id "com.stata.stata15"
+                        set stata to 15
+                    end try
+                    try
                         tell me to get application id "com.stata.stata14"
                         set stata to 14
                     end try
