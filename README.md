@@ -3,7 +3,7 @@
 * Version 2.2.4
 * Date: June 16, 2017
 
-This package basic support for Stata (11–15, Windows and OS X) and comes with:
+This package adds basic support for Stata (11–15, Windows and OS X) and comes with:
 
 * Language definition for `.do` and `.ado` files 
 * Commands for sending individual lines or selections to Stata (available via the command palette and with keyboard shortcuts):
