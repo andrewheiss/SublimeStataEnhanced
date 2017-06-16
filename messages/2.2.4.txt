@@ -1,0 +1,6 @@
+----------------------------
+Sublime Stata Enhanced 2.2.4
+----------------------------
+
+Fixes:
+    * Package should now work with Stata 15.

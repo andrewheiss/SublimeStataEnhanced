@@ -1,9 +1,9 @@
 # Sublime Stata Enhanced
 
-* Version 2.2.1
-* Date: August 2, 2016
+* Version 2.2.4
+* Date: June 16, 2017
 
-This package basic support for Stata (11–14, Windows and OS X) and comes with:
+This package basic support for Stata (11–15, Windows and OS X) and comes with:
 
 * Language definition for `.do` and `.ado` files 
 * Commands for sending individual lines or selections to Stata (available via the command palette and with keyboard shortcuts):
